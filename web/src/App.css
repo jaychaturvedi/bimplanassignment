@@ -1,0 +1,16 @@
+@import '~antd/dist/antd.css';
+.App {
+}
+.ant-card-meta-title {
+  white-space: pre-line;
+  color:#1868ae
+}
+.ant-card-meta-description {
+  color: rgb(211, 7, 7);
+}
+
+.navbar.navbar-default{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
