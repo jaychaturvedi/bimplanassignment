@@ -1,10 +1,9 @@
 import express, { Application, Request, Response, NextFunction } from "express";
 import { validationResult, body, param } from "express-validator";
 import Sequelize from 'sequelize';
-import JwtDecode from "jwt-decode";
 import {
   BadRequestError, ForbiddenError, NotFoundError, UnauthorizedError,
-  MotoVoltError, UserError, FeedbackError, IssuesError, FeaturesError, RideError, SupportError, AlertError
+  MotoVoltError, PostsError,
 } from "./error";
 const Op = Sequelize.Op
 
@@ -36,7 +35,7 @@ export function expressErrorHandler(err: Error, req: Request, res: Response,
     status = err.name as TResponseStatus || "UNKNOWN_ERROR";
     statusCode = err.errorCode
   }
-  else if (err instanceof UserError) {
+  else if (err instanceof PostsError) {
     status = "ERROR"
     statusCode = 200
   }
@@ -55,15 +54,6 @@ export function expressQAsync(fn: Function) {
   return (req: Request, res: Response, next: NextFunction) => {
     Promise.resolve(fn(req, res, next)).catch(next);
   }
-}
-
-
-export async function secure(
-  req: Request,
-  res: Response,
-  next: any
-) {
-  next()
 }
 
 

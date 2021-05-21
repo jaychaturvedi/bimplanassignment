@@ -1,17 +1,13 @@
 import express from 'express';
-import { APIGatewayProxyEvent, Context } from "aws-lambda";
-import serverless from "serverless-http";
-import userRoutes from './user/routes'
+import userRoutes from './post/routes'
 import cors from 'cors';
 import * as dotenv from "dotenv"
 import * as bodyparser from 'body-parser';
 import db from "./db"
-import User from './user/service';
 dotenv.config()
 
 const app = express();
 app.use(cors());
-app.options('/*', cors())
 app.use(bodyparser.urlencoded({ extended: false }))
 app.use(bodyparser.json());
 app.use("/post", userRoutes)
