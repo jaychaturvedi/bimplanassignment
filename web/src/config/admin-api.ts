@@ -1,4 +1,4 @@
-import request, { USER_URL, ADMIN_URL, ISSUE_URL, BASE_URL } from "./api"
+import request, { BASE_URL } from "./api"
 
 const adminApi = {
   get: () => request.get(`${BASE_URL}/post`, {}),

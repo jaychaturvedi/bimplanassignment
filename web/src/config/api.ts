@@ -3,9 +3,6 @@ import { get } from "lodash";
 import ShowNotification from "./notification";
 
 export const BASE_URL = "http://localhost:5000";
-export const ADMIN_URL = "http://54.152.93.24:8080";
-export const USER_URL = "http://54.152.93.24:8081";
-export const ISSUE_URL = "http://54.152.93.24:8082";
 
 const axiosInstance = Axios.create({
   // baseURL: BASE_URL,
@@ -14,19 +11,6 @@ const axiosInstance = Axios.create({
   },
 });
 
-// axiosInstance.interceptors.request.use(
-//   async (config) => {
-//     const token = await AsyncStorage.getItem('access_token');
-//     if (token) {
-//       config.headers.Authorization = token;
-//     }
-//     console.log('config', config);
-//     return config;
-//   },
-//   (error) => {
-//     return Promise.reject(error);
-//   },
-// );
 
 const request = {
   get: (url: string, params: { [key: string]: string }, headers = {}) =>

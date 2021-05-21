@@ -24,6 +24,8 @@ function App() {
             <AdminPage />
           </Route>
         </Switch>
+
+        {/* toast notification for api calls */}
         <ToastContainer
           position='top-right'
           autoClose={2000}
